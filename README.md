@@ -30,7 +30,7 @@
 ## Структура проекта
 
 ```
-learning_log/              ← папка проекта (открыть в VS Code)
+learning_log/              ← папка проекта
 ├── manage.py
 ├── requirements.txt       ← зависимости
 ├── Dockerfile             ← образ для деплоя
@@ -62,11 +62,10 @@ learning_log/              ← папка проекта (открыть в VS C
 ## Запуск на локальном компьютере (Windows 10, PowerShell)
 
 Требуется установленный Python 3.12 (при установке отметьте «Add Python to PATH»).
-Подробная пошаговая инструкция — в файле `Инструкция_запуска_Windows_10.pdf`.
 
 ```powershell
-# 1. Перейти в папку проекта (путь укажите свой)
-cd ~\Documents\learning_log
+# 1. Перейти в папку проекта
+cd C:\Users\Дарья\Documents\borovkova\learning_log
 
 # 2. Создать виртуальное окружение (один раз)
 py -3.12 -m venv ll_env
@@ -114,14 +113,14 @@ GET-запрос на logout не разлогинивает (в Django 5.2 вы
 ### 1. Скопировать проект на сервер
 
 ```bash
-git clone <адрес вашего репозитория> learning_log
+git clone https://github.com/DaryTori/learning_log learning_log
 cd learning_log
 ```
 
 ### 2. Создать файл `.env` в корне проекта
 
 ```env
-DJANGO_SECRET_KEY=замените-на-длинный-случайный-ключ
+DJANGO_SECRET_KEY=
 DJANGO_DEBUG=False
 DJANGO_ALLOWED_HOSTS=192.168.1.11,localhost,127.0.0.1
 DJANGO_CSRF_TRUSTED_ORIGINS=http://192.168.1.11:20010
@@ -147,7 +146,7 @@ Gunicorn. Приложение будет доступно по адресу `ht
 
 | Переменная | Назначение | Значение по умолчанию |
 |---|---|---|
-| `DJANGO_SECRET_KEY` | Секретный ключ Django (на сервере задайте свой) | ключ для локальной разработки |
+| `DJANGO_SECRET_KEY` | Секретный ключ Django | ключ для локальной разработки |
 | `DJANGO_DEBUG` | Режим отладки (`True`/`False`) | `True` |
 | `DJANGO_ALLOWED_HOSTS` | Разрешённые хосты через запятую | `localhost,127.0.0.1` |
 | `DJANGO_CSRF_TRUSTED_ORIGINS` | Доверенные источники для CSRF | пусто |
